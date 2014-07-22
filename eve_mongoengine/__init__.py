@@ -77,7 +77,8 @@ class EveMongoengine(object):
 
     def __init__(self, app):
         self.models = {}
-        self.init_app(app)
+        if app is not None:
+            self.init_app(app)
 
     def _parse_config(self):
         # parse app config
