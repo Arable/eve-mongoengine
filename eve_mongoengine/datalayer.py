@@ -140,6 +140,7 @@ class MongoengineDataLayer(Mongo):
         # id has to be always there
         model_cls = self._get_model_cls(resource)
         projection.discard('id')
+        projection.discard('_etag')
         rev_map = model_cls._reverse_db_field_map
         projection = [rev_map[field] for field in projection]
         projection.append('id')
